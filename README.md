@@ -50,4 +50,13 @@ These instructions will help you set up and run the project on your local machin
 3. Press F5 to run the application.
 
 ### API Endpoints
+
+- **GET /api/products**: Retrieve all products.
+- **GET /api/products/{id}**: Retrieve a product by ID.
+- **POST /api/products**: Add a new product.
+- **PUT /api/products/{id}**: Update an existing product.
+- **DELETE /api/products/{id}**: Delete a product.
+- **PATCH /api/products/{id}**: Partially update a product.
+- **GET /api/products/list?name=abc**: List and sort products.
+
 ![Swagger_API_Endpoints](https://github.com/MehmetOguzOzkan/PaparaCaseWeek1/blob/master/Docs/api_endpoints_swagger.jpeg)
