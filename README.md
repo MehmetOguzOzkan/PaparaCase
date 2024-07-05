@@ -27,3 +27,26 @@ These instructions will help you set up and run the project on your local machin
    ```sh
    git clone https://github.com/MehmetOguzOzkan/PaparaCaseWeek1.git
    cd PaparaCaseWeek1
+
+2. Configure the database connection string in `appsettings.json`:
+   ```sh
+   "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost;Database=MyRestfulApiDb;User=root;Password=your_password;"
+  }
+
+3. Install the required packages using NuGet Package Manager Console:
+   ```sh
+   Install-Package Microsoft.EntityFrameworkCore.Design
+   Install-Package Microsoft.EntityFrameworkCore.Tools
+   Install-Package Pomelo.EntityFrameworkCore.MySql
+
+4. Create and apply the initial migration:
+   ```sh
+   Add-Migration InitialCreate
+   Update-Database
+
+### Running the Project
+1. Open the project in Visual Studio.
+2. Set the project as the startup project.
+3. Press F5 to run the application.
+
