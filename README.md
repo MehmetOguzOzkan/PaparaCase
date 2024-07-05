@@ -49,3 +49,5 @@ These instructions will help you set up and run the project on your local machin
 2. Set the project as the startup project.
 3. Press F5 to run the application.
 
+### API Endpoints
+![Swagger API Endpoints](Docs/api_endpoints_swagger.jpg)
