@@ -50,4 +50,4 @@ These instructions will help you set up and run the project on your local machin
 3. Press F5 to run the application.
 
 ### API Endpoints
-(Docs/api_endpoints_swagger.jpg)
+![Swagger_API_Endpoints](https://github.com/MehmetOguzOzkan/PaparaCaseWeek1/blob/master/Docs/api_endpoints_swagger.jpeg)
