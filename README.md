@@ -31,7 +31,7 @@ These instructions will help you set up and run the project on your local machin
 2. Configure the database connection string in `appsettings.json`:
    ```sh
    "ConnectionStrings": {
-    "DefaultConnection": "Server=localhost;Database=MyRestfulApiDb;User=root;Password=your_password;" }
+    "DefaultConnection": "Server=localhost;Database=database_name;User=root;Password=your_password;" }
 
 3. Install the required packages using NuGet Package Manager Console:
    ```sh
