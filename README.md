@@ -25,5 +25,5 @@ These instructions will help you set up and run the project on your local machin
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/your-username/MyRestfulApi.git
-   cd MyRestfulApi
+   git clone https://github.com/MehmetOguzOzkan/PaparaCaseWeek1.git
+   cd PaparaCaseWeek1
