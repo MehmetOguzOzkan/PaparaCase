@@ -8,7 +8,7 @@ namespace WebApiCase1.Repositories
     {
         private readonly ApplicationDbContext _context;
 
-        // Repository constructor, DbContext injection
+        // Repository constructor, DbContext injection.
         public ProductRepository(ApplicationDbContext context)
         {
             _context = context;

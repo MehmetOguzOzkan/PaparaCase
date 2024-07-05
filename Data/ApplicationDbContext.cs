@@ -7,7 +7,7 @@ namespace WebApiCase1.Data
     {
         // DbContext configuration and dependency injection
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
-
+        
         // Database tables
         public DbSet<Product> Products { get; set; }
     }
