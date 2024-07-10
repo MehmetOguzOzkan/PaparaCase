@@ -10,5 +10,6 @@ namespace WebApiCase1.Data
         
         // Database tables
         public DbSet<Product> Products { get; set; }
+        public DbSet<User> Users { get; set; }
     }
 }
