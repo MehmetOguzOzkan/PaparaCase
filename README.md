@@ -63,4 +63,4 @@ These instructions will help you set up and run the project on your local machin
 - **POST /api/users/register**: Register a new user.
 - **POST /api/users/login**: Login with username and password to obtain JWT token.
 
-![Swagger_API_Endpoints](https://github.com/MehmetOguzOzkan/PaparaCaseWeek1/blob/master/Docs/api_endpoints_swagger.jpeg)
+![Swagger_API_Endpoints](https://github.com/MehmetOguzOzkan/PaparaCaseWeek2/blob/master/Docs/api_endpoints_swagger.jpeg)
