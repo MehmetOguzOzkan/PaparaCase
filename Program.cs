@@ -1,14 +1,20 @@
 using Microsoft.EntityFrameworkCore;
 using WebApiCase1.Data;
+using WebApiCase1.Mapping;
 using WebApiCase1.Middlewares;
 using WebApiCase1.Repositories;
 using WebApiCase1.Services;
+using WebApiCase1.Validation;
+using FluentValidation.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddFluentValidationAutoValidation().AddFluentValidationClientsideAdapters();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();

@@ -1,4 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using WebApiCase1.DTOs.Requests;
+using WebApiCase1.DTOs.Responses;
 using WebApiCase1.Models;
 using WebApiCase1.Services;
 
@@ -10,7 +12,7 @@ namespace WebApiCase1.Controllers
     {
         private readonly IProductService _productService;
 
-        // Controller constructor, service injection
+        // Constructor to inject the service dependency
         public ProductsController(IProductService productService)
         {
             _productService = productService;
@@ -18,48 +20,47 @@ namespace WebApiCase1.Controllers
 
         // Retrieve all products
         [HttpGet]
-        public ActionResult<IEnumerable<Product>> GetAll()
+        public ActionResult<IEnumerable<ProductResponse>> GetAll()
         {
-            var products = _productService.GetAll();
-            return Ok(products);
+            // Get all products from the service
+            var productDtos = _productService.GetAll();
+            return Ok(productDtos);
         }
 
         // Retrieve a product by ID
         [HttpGet("{id}")]
-        public ActionResult<Product> GetById(int id)
+        public ActionResult<ProductResponse> GetById(int id)
         {
-            var product = _productService.GetById(id);
-            if (product == null)
+            // Get the product by ID from the service
+            var productDto = _productService.GetById(id);
+            if (productDto == null)
                 return NotFound();
-            return Ok(product);
+
+            return Ok(productDto);
         }
 
         // Add a new product
         [HttpPost]
-        public ActionResult Add([FromBody] Product product)
+        public ActionResult Add([FromBody] ProductRequest productDto)
         {
-            // Model validation
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            // FluentValidation will handle model validation automatically
 
-            _productService.Add(product);
-            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product);
+            // Add the new product via the service
+            var createdProductDto = _productService.Add(productDto);
+            return CreatedAtAction(nameof(GetById), new { id = createdProductDto.Id }, createdProductDto);
         }
 
         // Update an existing product
         [HttpPut("{id}")]
-        public ActionResult Update(int id, [FromBody] Product product)
+        public ActionResult Update(int id, [FromBody] ProductRequest productDto)
         {
-            // Model validation
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            // FluentValidation will handle model validation automatically
 
-            var existingProduct = _productService.GetById(id);
-            if (existingProduct == null)
+            // Update the product via the service
+            var result = _productService.Update(id, productDto);
+            if (!result)
                 return NotFound();
 
-            product.Id = id;
-            _productService.Update(product);
             return NoContent();
         }
 
@@ -67,20 +68,21 @@ namespace WebApiCase1.Controllers
         [HttpDelete("{id}")]
         public ActionResult Delete(int id)
         {
-            var existingProduct = _productService.GetById(id);
-            if (existingProduct == null)
+            // Delete the product via the service
+            var result = _productService.Delete(id);
+            if (!result)
                 return NotFound();
 
-            _productService.Delete(id);
             return NoContent();
         }
 
-        // List and sort products
+        // List and sort products with optional filtering
         [HttpGet("list")]
-        public ActionResult<IEnumerable<Product>> List([FromQuery] string name, [FromQuery] string sortField, [FromQuery] string sortOrder)
+        public ActionResult<IEnumerable<ProductResponse>> List([FromQuery] string name, [FromQuery] string sortField, [FromQuery] string sortOrder)
         {
-            var products = _productService.List(name, sortField, sortOrder);
-            return Ok(products);
+            // List and sort products via the service
+            var productDtos = _productService.List(name, sortField, sortOrder);
+            return Ok(productDtos);
         }
     }
 }
