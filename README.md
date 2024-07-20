@@ -1,4 +1,4 @@
-## This project was created as the 324. Papara .Net Bootcamp Week 2 Case Study.
+## This project was created as the 324. Papara .Net Bootcamp.
 
 This project is a RESTful API developed in .NET 8. It adheres to REST standards and provides CRUD operations using GET, POST, PUT, DELETE, and PATCH methods. The API handles HTTP status codes correctly and ensures that error responses for 500, 400, 404, 200, and 201 statuses are returned in a standard format. Model validation is performed for required fields, and routing is implemented. Model binding examples are provided for both body and query parameters.
 

@@ -21,6 +21,7 @@ namespace WebApiCase1.Controllers
         [HttpPost("register")]
         public IActionResult Register([FromBody] RegisterRequest request)
         {
+            // Registration is handled by the service after validation by FluentValidation
             var user = new User
             {
                 Username = request.Username,
@@ -36,6 +37,7 @@ namespace WebApiCase1.Controllers
         [HttpPost("login")]
         public IActionResult Login([FromBody] LoginRequest request)
         {
+            // Login is handled by the service after validation by FluentValidation
             var user = _userService.Authenticate(request.Username, request.Password);
             if (user == null)
             {
