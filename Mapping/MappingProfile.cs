@@ -11,6 +11,8 @@ namespace WebApiCase1.Mapping
         {
             CreateMap<Product, ProductResponse>().ReverseMap();
             CreateMap<ProductRequest, Product>().ReverseMap();
+            CreateMap<Genre, GenreResponse>();
+            CreateMap<GenreRequest, Genre>();
         }
     }
 }
